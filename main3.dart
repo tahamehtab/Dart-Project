@@ -64,8 +64,10 @@ void main() {
       "role": "Trainer Manager",
     },
   ];
-    members = [
+  
+  members = [
     {
+      "name": "John Smith",
       "memberID": "001",
       "password": "password1",
       "attendance": [],
@@ -74,6 +76,7 @@ void main() {
       "bookedTrainer": null,
     },
     {
+      "name": "Jane Doe",
       "memberID": "002",
       "password": "password2",
       "attendance": [],
@@ -124,7 +127,6 @@ void adminLogin() {
   print("Enter your password: ");
   String password = stdin.readLineSync()!;
 
-  // Replace with your actual admin username and password for the sake of simplicity
   if (username == "admin" && password == "admin") {
     showAdminMenu();
   } else {
@@ -154,6 +156,8 @@ void memberLogin() {
 // Create Member Account
 void createMemberAccount() {
   print("\n==== Create Member Account ====");
+  print("Enter your name: ");
+  String name = stdin.readLineSync()!;
   print("Enter your desired member ID: ");
   String memberID = stdin.readLineSync()!;
   if (findMemberByID(memberID) != null) {
@@ -166,6 +170,7 @@ void createMemberAccount() {
   String password = stdin.readLineSync()!;
 
   Map<String, dynamic> newMember = {
+    "name": name,
     "memberID": memberID,
     "password": password,
     "attendance": [],
@@ -280,7 +285,32 @@ void viewAllMembers() {
     print("No members found.");
   } else {
     for (var member in members) {
+      print("Name: ${member['name']}");
       print("Member ID: ${member['memberID']}");
+      print("Attendance: ${member['attendance']}");
+      print("Registered Classes:");
+      if (member['registeredClasses'].isEmpty) {
+        print("   No registered classes.");
+      } else {
+        for (var classData in member['registeredClasses']) {
+          print("   Class: ${classData['name']}, Instructor: ${classData['instructor']}, Date & Time: ${classData['dateTime']}");
+        }
+      }
+      print("Registered Membership Plans:");
+      if (member['registeredMemberships'].isEmpty) {
+        print("   No registered membership plans.");
+      } else {
+        for (var plan in member['registeredMemberships']) {
+          print("   Name: ${plan['name']}, Price: \$${plan['price']}");
+        }
+      }
+      print("Booked Trainer:");
+      if (member['bookedTrainer'] == null) {
+        print("   No booked trainer.");
+      } else {
+        print("   Name: ${member['bookedTrainer']['name']}, Specialization: ${member['bookedTrainer']['specialization']}");
+      }
+      print("-------------------------------");
     }
   }
   showAdminMenu();
@@ -433,7 +463,8 @@ void showMemberMenu(Map<String, dynamic> member) {
   print("4. Register for Membership Plan");
   print("5. View Membership Plans");
   print("6. Book Personal Trainer");
-  print("7. Logout");
+  print("7. View Your Details");
+  print("8. Logout");
   print("Enter your choice: ");
   int choice = int.parse(stdin.readLineSync()!);
 
@@ -457,6 +488,9 @@ void showMemberMenu(Map<String, dynamic> member) {
       bookPersonalTrainer(member);
       break;
     case 7:
+      viewMemberDetails(member);
+      break;
+    case 8:
       print("Logging out.\n");
       showMainMenu();
       break;
@@ -507,6 +541,38 @@ void registerClass(Map<String, dynamic> member) {
   } else {
     print("Class not found. Please enter a valid class name.");
   }
+
+  showMemberMenu(member);
+}
+
+void viewMemberDetails(Map<String, dynamic> member) {
+  print("\n==== Member Details ====");
+  print("Name: ${member['name']}");
+  print("Member ID: ${member['memberID']}");
+  print("Attendance: ${member['attendance']}");
+  print("Registered Classes:");
+  if (member['registeredClasses'].isEmpty) {
+    print("   No registered classes.");
+  } else {
+    for (var classData in member['registeredClasses']) {
+      print("   Class: ${classData['name']}, Instructor: ${classData['instructor']}, Date & Time: ${classData['dateTime']}");
+    }
+  }
+  print("Registered Membership Plans:");
+  if (member['registeredMemberships'].isEmpty) {
+    print("   No registered membership plans.");
+  } else {
+    for (var plan in member['registeredMemberships']) {
+      print("   Name: ${plan['name']}, Price: \$${plan['price']}");
+    }
+  }
+  print("Booked Trainer:");
+  if (member['bookedTrainer'] == null) {
+    print("   No booked trainer.");
+  } else {
+    print("   Name: ${member['bookedTrainer']['name']}, Specialization: ${member['bookedTrainer']['specialization']}");
+  }
+  print("-------------------------------");
 
   showMemberMenu(member);
 }
