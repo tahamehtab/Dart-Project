@@ -64,6 +64,24 @@ void main() {
       "role": "Trainer Manager",
     },
   ];
+    members = [
+    {
+      "memberID": "001",
+      "password": "password1",
+      "attendance": [],
+      "registeredClasses": [],
+      "registeredMemberships": [],
+      "bookedTrainer": null,
+    },
+    {
+      "memberID": "002",
+      "password": "password2",
+      "attendance": [],
+      "registeredClasses": [],
+      "registeredMemberships": [],
+      "bookedTrainer": null,
+    },
+  ];
 
   showMainMenu();
 }
