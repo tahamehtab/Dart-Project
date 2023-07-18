@@ -12,12 +12,12 @@ void main() {
     {
       "name": "CrossFit",
       "instructor": "Shammas Khan",
-      "dateTime": DateTime(2023, 7, 19, 10, 0), // Date and time for CrossFit class
+      "dateTime": DateTime(2023, 7, 19, 10, 0), 
     },
     {
       "name": "Yoga",
       "instructor": "Asghar Qambar",
-      "dateTime": DateTime(2023, 7, 20, 14, 30), // Date and time for Yoga class
+      "dateTime": DateTime(2023, 7, 20, 14, 30), 
     },
   ];
 
@@ -251,7 +251,7 @@ void showAdminMenu() {
   }
 }
 
-// Helper function to find a member by their ID
+//function to find a member by their ID
 Map<String, dynamic>? findMemberByID(String memberID) {
   for (var member in members) {
     if (member["memberID"] == memberID) {
