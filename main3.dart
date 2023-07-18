@@ -8,6 +8,63 @@ List<Map<String, dynamic>> classes = [];
 List<Map<String, dynamic>> trainers = [];
 
 void main() {
+  classes = [
+    {
+      "name": "CrossFit",
+      "instructor": "John Doe",
+      "dateTime": DateTime(2023, 7, 19, 10, 0), // Date and time for CrossFit class
+    },
+    {
+      "name": "Yoga",
+      "instructor": "Jane Smith",
+      "dateTime": DateTime(2023, 7, 20, 14, 30), // Date and time for Yoga class
+    },
+  ];
+
+ trainers = [
+    {
+      "name": "John Doe",
+      "specialization": "Strength Training",
+    },
+    {
+      "name": "Jane Smith",
+      "specialization": "Yoga",
+    },
+  ];
+
+  classes = [
+    {
+      "name": "CrossFit",
+      "instructor": "John Doe",
+    },
+    {
+      "name": "Yoga",
+      "instructor": "Jane Smith",
+    },
+  ];
+
+  membershipPlans = [
+    {
+      "name": "Basic",
+      "price": 50.0,
+    },
+    {
+      "name": "Premium",
+      "price": 100.0,
+    },
+  ];
+
+  staffMembers = [
+    {
+      "name": "Alice Johnson",
+      "role": "Receptionist",
+    },
+    {
+      "name": "Bob Wilson",
+      "role": "Trainer Manager",
+    },
+  ];
+
   showMainMenu();
 }
 
@@ -284,10 +341,14 @@ void addClass() {
   String name = stdin.readLineSync()!;
   print("Enter class instructor: ");
   String instructor = stdin.readLineSync()!;
+  print("Enter date and time (e.g., 2023-07-19 15:30): ");
+  String dateTimeString = stdin.readLineSync()!;
+  DateTime dateTime = DateTime.parse(dateTimeString);
 
   Map<String, dynamic> newClass = {
     "name": name,
     "instructor": instructor,
+    "dateTime": dateTime,
   };
 
   classes.add(newClass);
