@@ -11,23 +11,23 @@ void main() {
   classes = [
     {
       "name": "CrossFit",
-      "instructor": "John Doe",
+      "instructor": "Shammas Khan",
       "dateTime": DateTime(2023, 7, 19, 10, 0), // Date and time for CrossFit class
     },
     {
       "name": "Yoga",
-      "instructor": "Jane Smith",
+      "instructor": "Asghar Qambar",
       "dateTime": DateTime(2023, 7, 20, 14, 30), // Date and time for Yoga class
     },
   ];
 
  trainers = [
     {
-      "name": "John Doe",
+      "name": "Shammas Khan",
       "specialization": "Strength Training",
     },
     {
-      "name": "Jane Smith",
+      "name": "Asghar Qambar",
       "specialization": "Yoga",
     },
   ];
@@ -35,11 +35,11 @@ void main() {
   classes = [
     {
       "name": "CrossFit",
-      "instructor": "John Doe",
+      "instructor": "Shammas Khan",
     },
     {
       "name": "Yoga",
-      "instructor": "Jane Smith",
+      "instructor": "Asghar Qambar",
     },
   ];
 
@@ -56,18 +56,18 @@ void main() {
 
   staffMembers = [
     {
-      "name": "Alice Johnson",
+      "name": "Musfir Ali",
       "role": "Receptionist",
     },
     {
-      "name": "Bob Wilson",
+      "name": "Raheel Hassan",
       "role": "Trainer Manager",
     },
   ];
-  
+
   members = [
     {
-      "name": "John Smith",
+      "name": "Shoaib Akhter",
       "memberID": "001",
       "password": "password1",
       "attendance": [],
@@ -76,7 +76,7 @@ void main() {
       "bookedTrainer": null,
     },
     {
-      "name": "Jane Doe",
+      "name": "Majid Uzair",
       "memberID": "002",
       "password": "password2",
       "attendance": [],
