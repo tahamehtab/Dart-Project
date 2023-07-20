@@ -337,8 +337,20 @@ void deleteStaffMember() {
   print("\n==== Delete Staff Member ====");
   print("Enter the staff member's name to delete: ");
   String name = stdin.readLineSync()!;
-  staffMembers.removeWhere((staff) => staff["name"] == name);
-  print("Staff member deleted successfully!");
+   bool staffFound = false;
+  for (int i = 0; i < staffMembers.length; i++) {
+    if (staffMembers[i]["name"] == name) {
+      staffMembers.removeAt(i);
+      staffFound = true;
+      break;
+    }
+  }
+
+  if (staffFound) {
+    print("Staff member deleted successfully!");
+  } else {
+    print("Staff member not found.");
+  }
   showAdminMenu();
 }
 
@@ -437,8 +449,20 @@ void deleteTrainer() {
   print("\n==== Delete Trainer ====");
   print("Enter the trainer's name to delete: ");
   String name = stdin.readLineSync()!;
-  trainers.removeWhere((trainer) => trainer["name"] == name);
-  print("Trainer deleted successfully!");
+  bool trainerFound = false;
+  for (int i = 0; i < trainers.length; i++) {
+    if (trainers[i]["name"] == name) {
+      trainers.removeAt(i);
+      trainerFound = true;
+      break;
+    }
+  }
+
+  if (trainerFound) {
+    print("Trainer deleted successfully!");
+  } else {
+    print("Trainer not found.");
+  }
   showAdminMenu();
 }
 
