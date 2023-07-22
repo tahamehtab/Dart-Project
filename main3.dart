@@ -1,6 +1,6 @@
 import 'dart:io';
 
-// Data Structures
+
 List<Map<String, dynamic>> members = [];
 List<Map<String, dynamic>> staffMembers = [];
 List<Map<String, dynamic>> membershipPlans = [];
@@ -12,12 +12,12 @@ void main() {
     {
       "name": "CrossFit",
       "instructor": "Shammas Khan",
-      "dateTime": DateTime(2023, 7, 19, 10, 0), 
+      "Time": "7:30", 
     },
     {
       "name": "Yoga",
       "instructor": "Asghar Qambar",
-      "dateTime": DateTime(2023, 7, 20, 14, 30), 
+      "Time": "6:30", 
     },
   ];
 
@@ -29,17 +29,6 @@ void main() {
     {
       "name": "Asghar Qambar",
       "specialization": "Yoga",
-    },
-  ];
-
-  classes = [
-    {
-      "name": "CrossFit",
-      "instructor": "Shammas Khan",
-    },
-    {
-      "name": "Yoga",
-      "instructor": "Asghar Qambar",
     },
   ];
 
@@ -401,14 +390,13 @@ void addClass() {
   String name = stdin.readLineSync()!;
   print("Enter class instructor: ");
   String instructor = stdin.readLineSync()!;
-  print("Enter date and time (e.g., 2023-07-19 15:30): ");
-  String dateTimeString = stdin.readLineSync()!;
-  DateTime dateTime = DateTime.parse(dateTimeString);
+  print("Time (example : 15:30): ");
+  String time = stdin.readLineSync()!;
 
   Map<String, dynamic> newClass = {
     "name": name,
     "instructor": instructor,
-    "dateTime": dateTime,
+    "Time": time,
   };
 
   classes.add(newClass);
@@ -422,7 +410,7 @@ void viewAllClasses() {
     print("No classes found.");
   } else {
     for (var classData in classes) {
-      print("Class: ${classData['name']}, Instructor: ${classData['instructor']}");
+      print("Class: ${classData['name']}, Instructor: ${classData['instructor']}, Time: ${classData['Time']}");
     }
   }
   showAdminMenu();
